@@ -105,16 +105,16 @@ public class SuperMutantBasic extends GenericNPC {
 		Item weapon = null;
 		switch (r.nextInt(5)) {
 			case 0:
-				weapon = TGuns.rocketlauncher;
+				weapon = TGuns.lasergun;
 				break;
 			case 1:
-				weapon = TGuns.ak47;
+				weapon = TGuns.teslagun;
 				break;
 			case 2:
-				weapon = TGuns.combatshotgun;
+				weapon = TGuns.biogun;
 				break;
 			default:
-				weapon = TGuns.lasergun;
+				weapon = TGuns.mibgun;
 				break;
 			/*default:
 				weapon = Items.IRON_SHOVEL;

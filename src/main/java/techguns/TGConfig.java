@@ -22,6 +22,10 @@ public class TGConfig {
 	public static boolean addSteelNuggets;
 
 	public static boolean keepLavaRecipesWhenFuelIsPresent;
+
+	// jetpack balance
+	public static float jetpackMotionFactor;
+	public static int jetpackFuelConsumption;
 	
 	public static boolean cl_lockSpeedFov;
 	public static float cl_fixedSprintFov;
@@ -62,9 +66,14 @@ public class TGConfig {
 	public static int spawnWeightBandit;
 	
 	public static int spawnWeightPsychoSteve;
+
+	public static int spawnWeightSuperMutantBasic;
+	public static int spawnWeightSuperMutantElite;
+	public static int spawnWeightSuperMutantHeavy;
 	
 	public static int spawnWeightTGOverworld;
 	public static int spawnWeightTGNether;
+	public static int spawnWeightTGEnd;
 	
 	public static int cl_sortPassesPerTick;
 	
@@ -107,6 +116,9 @@ public class TGConfig {
 		
 		disableAutofeeder = config.getBoolean("disableAutofeeder", config.CATEGORY_GENERAL, false, "Disable automatic feeding of Food in the Techguns tab. Disable autofeeding if you think it breaks the balance");	
 		machinesNeedNoPower = config.getBoolean("machinesNeedNoPower", config.CATEGORY_GENERAL, false, "Machines don't need power, activate this if you don't want to install a mod with generators and still be able to use the machines");
+
+		jetpackMotionFactor = config.getFloat("jetpackMotionFactor", config.CATEGORY_GENERAL, 1.0f, 0.01f, 10.0f, "how fast a jetpack can move");
+		jetpackFuelConsumption = config.getInt("jetpackFuelConsumption", config.CATEGORY_GENERAL, 1, 1, 100, "how fast a jetpack consume fuel");
 		
 		keepLavaRecipesWhenFuelIsPresent = config.getBoolean("keepLavaRecipesWhenFuelIsPresent", config.CATEGORY_GENERAL, false, "Keep recipes with lava instead of fuel even when fuel is present. Fuels need to be added by other mods");
 			
@@ -128,6 +140,7 @@ public class TGConfig {
 				
 		spawnWeightTGOverworld = config.getInt("Techguns Spawnweight Overworld", "NPC Spawn", 600, 0, 10000, "Spawn weigth of Techguns NPCs, determines how many TG npcs spawn");
 		spawnWeightTGNether = config.getInt("Techguns Spawnweight NEther", "NPC Spawn", 300, 0, 10000, "Spawn weigth of Techguns NPCs in the Nether, determines how many TG npcs spawn");
+		spawnWeightTGEnd = config.getInt("Techguns Spawnweight End", "NPC Spawn", 100, 0, 10000, "Spawn weight off Techguns NPCs in the End, determines how many TG npcs spawn");
 		
 		spawnWeightZombieSoldier  = config.getInt("SpawnWeightZombieSoldier", "NPC Spawn", 100, 0, 10000, "Spawn weight for spawning Zombie Soldiers, at 0 spawn will not be registered");
 		
@@ -144,7 +157,10 @@ public class TGConfig {
 		spawnWeightSkeletonSoldier = config.getInt("SpawnWeightSkeletonSoldier", "NPC Spawn", 100, 0, 10000, "Spawn weight for spawning Skeleton Soldiers, at 0 spawn will not be registered");
 		
 		spawnWeightPsychoSteve = config.getInt("SpawnWeightPsychoSteve", "NPC Spawn", 3, 0, 10000, "Spawn weight for spawning Psycho Steve, early game boss, don't set to high value, at 0 spawn will not be registered");
-	
+
+		spawnWeightSuperMutantBasic = config.getInt("SpawnWeightSuperMutantBasic", "NPC Spawn", 100, 0, 10000, "Spawn weight for spawning Super Mutant (End Only), at 0 spawn will not be registered");
+		spawnWeightSuperMutantElite = config.getInt("SpawnWeightSuperMutantElite", "NPC Spawn", 50, 0, 10000, "Spawn weight for spawning Super Mutant Elite (End Only), at 0 spawn will not be registered");
+		spawnWeightSuperMutantHeavy = config.getInt("SpawnWeightSuperMutantHeavy", "NPC Spawn", 20, 0, 10000, "Spawn weight for spawning Super Mutant Heavy (End Only), at 0 spawn will not be registered");
 		
 		damagePvP = config.getFloat("DamagePvP", DAMAGE_FACTORS, 0.5f, 0.0f, 100.0f, "Damage factor Techguns weapons deal when fired from players against other players, is zero when PvP is disabled");
 		

@@ -3,6 +3,7 @@ package techguns.items.additionalslots;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.DimensionType;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import techguns.TGItems;
 import techguns.TGPackets;
@@ -11,6 +12,8 @@ import techguns.api.tginventory.TGSlotType;
 import techguns.capabilities.TGExtendedPlayer;
 import techguns.keybind.TGKeybindsID;
 import techguns.packets.PacketTGKeybindPress;
+
+import static techguns.TGConfig.jetpackFuelConsumption;
 
 public class ItemJetpack extends ItemTGSpecialSlotAmmo {
 
@@ -78,10 +81,15 @@ public class ItemJetpack extends ItemTGSpecialSlotAmmo {
 	}
 
 	protected void applyBoostToPlayer(EntityPlayer ply, ItemStack item) {
+		int fuelConsumption = jetpackFuelConsumption;
+		if (ply.dimension == DimensionType.THE_END.getId()) {
+			fuelConsumption = fuelConsumption * 5;
+		} else if (ply.dimension == DimensionType.NETHER.getId()) {
+			fuelConsumption = fuelConsumption * 2;
+		}
 		ply.motionY = Math.min(ply.motionY + 0.15f, 0.4f);
 		ply.fallDistance = 0;
-		item.setItemDamage(item.getItemDamage() + 1);
-
+		item.setItemDamage(item.getItemDamage() + fuelConsumption);
 	}
 
 	protected void descendPlayer(EntityPlayer ply, ItemStack item) {
