@@ -133,15 +133,15 @@ public class TGFluids implements ITGInitializer {
 			
 			//OIL = FluidRegistry.getFluid("oil");
 			
-			for (int i=0;i<fuelnames.length;i++) {
-				Fluid f = FluidRegistry.getFluid(fuelnames[i]);
+			for (String fluidName: TGConfig.fluidListFuel) {
+				Fluid f = FluidRegistry.getFluid(fluidName);
 				if(f!=null) {
 					fuels.add(f);
 				}
 			}
 			
-			for (int i=0;i<oilnames.length;i++) {
-				Fluid f = FluidRegistry.getFluid(oilnames[i]);
+			for (String fluidName: TGConfig.fluidListOil) {
+				Fluid f = FluidRegistry.getFluid(fluidName);
 				if(f!=null) {
 					oils.add(f);
 				}
